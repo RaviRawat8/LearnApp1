@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz Result - LearnCraft{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <!-- Quiz Result Card -->
+        <div class="card shadow-lg mb-4">
+            <div class="card-header bg-{{ feedback.color }} text-white text-center">
+                <h3><i class="fas fa-{{ 'trophy' if feedback.level == 'excellent' else 'medal' if feedback.level == 'good' else 'thumbs-up' if feedback.level == 'satisfactory' else 'book' }}"></i> Quiz Completed!</h3>
+            </div>
+            <div class="card-body p-4">
+                <div class="row text-center mb-4">
+                    <div class="col-md-3">
+                        <div class="result-metric">
+                            <h2 class="text-primary">{{ result.score }}%</h2>
+                            <p class="text-muted">Your Score</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="result-metric">
+                            <h2 class="text-info">{{ result.time_taken }} min</h2>
+                            <p class="text-muted">Time Taken</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="result-metric">
+                            <h2 class="text-warning">{{ result.confidence }}/5</h2>
+                            <p class="text-muted">Confidence</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="result-metric">
+                            <h2 class="text-success">{{ result.difficulty|title }}</h2>
+                            <p class="text-muted">Difficulty</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-{{ feedback.color }} text-center">
+                    <h5 class="mb-2">{{ feedback.level|title }} Performance!</h5>
+                    <p class="mb-0">{{ feedback.message }}</p>
+                </div>
+
+                <div class="topic-info text-center">
+                    <h5>Topic: <span class="badge bg-primary fs-6">{{ result.topic|title }}</span></h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations Based on Performance -->
+        <div class="card shadow-lg">
+            <div class="card-header bg-info text-white">
+                <h5><i class="fas fa-lightbulb"></i> What's Next? Personalized Recommendations</h5>
+            </div>
+            <div class="card-body">
+                {% if recommendations %}
+                    <div class="row">
+                        {% for rec in recommendations %}
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h6 class="card-title">{{ rec.topic|title }}</h6>
+                                    <span class="badge bg-{{ 'success' if rec.difficulty == 'beginner' else 'warning' if rec.difficulty == 'intermediate' else 'danger' }} mb-2">
+                                        {{ rec.difficulty|title }}
+                                    </span>
+                                    <p class="card-text small">{{ rec.reason }}</p>
+                                    <div class="d-grid">
+                                        <a href="{{ url_for('take_quiz', quiz_id=rec.quiz_id, topic=rec.topic, difficulty=rec.difficulty) }}" 
+                                           class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-play"></i> Try This Quiz
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="text-center text-muted">Loading new recommendations based on your performance...</p>
+                {% endif %}
+
+                <div class="d-flex justify-content-center gap-3 mt-4">
+                    <a href="{{ url_for('take_quiz') }}" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Take Another Quiz
+                    </a>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-success">
+                        <i class="fas fa-tachometer-alt"></i> Back to Dashboard
+                    </a>
+                    <a href="{{ url_for('performance_analytics') }}" class="btn btn-info">
+                        <i class="fas fa-chart-line"></i> View Analytics
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

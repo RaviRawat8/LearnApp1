@@ -1,0 +1,61 @@
+quiz_id,topic,difficulty_level,estimated_time,num_questions,skill_tags,prerequisite_topics
+QZ_001,photosynthesis,beginner,39.75,3,"photosynthesis,beginner,critical_thinking",
+QZ_002,photosynthesis,intermediate,35.01,5,"photosynthesis,intermediate,critical_thinking","american revolution,civil rights"
+QZ_003,photosynthesis,advanced,31.9,7,"photosynthesis,advanced,critical_thinking","geometry,atomic structure"
+QZ_004,gravity,beginner,40.01,3,"gravity,beginner,critical_thinking",
+QZ_005,gravity,intermediate,2.97,5,"gravity,intermediate,critical_thinking","renaissance,algebra"
+QZ_006,gravity,advanced,36.78,7,"gravity,advanced,critical_thinking","statistics,chemical reactions"
+QZ_007,democracy,beginner,23.46,3,"democracy,beginner,critical_thinking",
+QZ_008,democracy,intermediate,11.69,5,"democracy,intermediate,critical_thinking","civil rights,chemical reactions"
+QZ_009,democracy,advanced,35.11,7,"democracy,advanced,critical_thinking","fractions,renaissance"
+QZ_010,fractions,beginner,43.74,3,"fractions,beginner,critical_thinking",
+QZ_011,fractions,intermediate,28.63,5,"fractions,intermediate,critical_thinking","renaissance,atomic structure"
+QZ_012,fractions,advanced,39.53,7,"fractions,advanced,critical_thinking","democracy,geometry"
+QZ_013,american revolution,beginner,46.12,3,"american revolution,beginner,critical_thinking",
+QZ_014,american revolution,intermediate,43.15,5,"american revolution,intermediate,critical_thinking","gravity,fractions"
+QZ_015,american revolution,advanced,46.4,7,"american revolution,advanced,critical_thinking","photosynthesis,atomic structure"
+QZ_016,cell biology,beginner,37.42,3,"cell biology,beginner,critical_thinking",
+QZ_017,cell biology,intermediate,30.75,5,"cell biology,intermediate,critical_thinking","fractions,cell biology"
+QZ_018,cell biology,advanced,13.98,7,"cell biology,advanced,critical_thinking","world war ii,statistics"
+QZ_019,algebra,beginner,27.54,3,"algebra,beginner,critical_thinking",
+QZ_020,algebra,intermediate,21.57,5,"algebra,intermediate,critical_thinking","cell biology,ancient rome"
+QZ_021,algebra,advanced,51.71,7,"algebra,advanced,critical_thinking","cell biology,atomic structure"
+QZ_022,world war ii,beginner,28.24,3,"world war ii,beginner,critical_thinking",
+QZ_023,world war ii,intermediate,31.23,5,"world war ii,intermediate,critical_thinking","ancient rome,calculus"
+QZ_024,world war ii,advanced,35.51,7,"world war ii,advanced,critical_thinking","renaissance,world war ii"
+QZ_025,climate change,beginner,30.44,3,"climate change,beginner,critical_thinking",
+QZ_026,climate change,intermediate,46.95,5,"climate change,intermediate,critical_thinking","ecosystems,cell biology"
+QZ_027,climate change,advanced,23.77,7,"climate change,advanced,critical_thinking","cell biology,calculus"
+QZ_028,geometry,beginner,31.95,3,"geometry,beginner,critical_thinking",
+QZ_029,geometry,intermediate,22.58,5,"geometry,intermediate,critical_thinking","ecosystems,photosynthesis"
+QZ_030,geometry,advanced,16.8,7,"geometry,advanced,critical_thinking","trigonometry,algebra"
+QZ_031,atomic structure,beginner,23.88,3,"atomic structure,beginner,critical_thinking",
+QZ_032,atomic structure,intermediate,29.63,5,"atomic structure,intermediate,critical_thinking","renaissance,genetics"
+QZ_033,atomic structure,advanced,25.71,7,"atomic structure,advanced,critical_thinking","calculus,ecosystems"
+QZ_034,civil rights,beginner,23.08,3,"civil rights,beginner,critical_thinking",
+QZ_035,civil rights,intermediate,15.94,5,"civil rights,intermediate,critical_thinking","photosynthesis,algebra"
+QZ_036,civil rights,advanced,29.17,7,"civil rights,advanced,critical_thinking","algebra,climate change"
+QZ_037,ecosystems,beginner,14.95,3,"ecosystems,beginner,critical_thinking",
+QZ_038,ecosystems,intermediate,37.6,5,"ecosystems,intermediate,critical_thinking","democracy,genetics"
+QZ_039,ecosystems,advanced,30.82,7,"ecosystems,advanced,critical_thinking","fractions,ancient rome"
+QZ_040,calculus,beginner,15.42,3,"calculus,beginner,critical_thinking",
+QZ_041,calculus,intermediate,26.91,5,"calculus,intermediate,critical_thinking","cell biology,civil rights"
+QZ_042,calculus,advanced,22.48,7,"calculus,advanced,critical_thinking","atomic structure,algebra"
+QZ_043,renaissance,beginner,33.19,3,"renaissance,beginner,critical_thinking",
+QZ_044,renaissance,intermediate,43.4,5,"renaissance,intermediate,critical_thinking","renaissance,fractions"
+QZ_045,renaissance,advanced,11.25,7,"renaissance,advanced,critical_thinking","climate change,chemical reactions"
+QZ_046,chemical reactions,beginner,31.15,3,"chemical reactions,beginner,critical_thinking",
+QZ_047,chemical reactions,intermediate,28.4,5,"chemical reactions,intermediate,critical_thinking","statistics,atomic structure"
+QZ_048,chemical reactions,advanced,36.71,7,"chemical reactions,advanced,critical_thinking","trigonometry,ecosystems"
+QZ_049,statistics,beginner,32.13,3,"statistics,beginner,critical_thinking",
+QZ_050,statistics,intermediate,22.48,5,"statistics,intermediate,critical_thinking","trigonometry,ecosystems"
+QZ_051,statistics,advanced,26.81,7,"statistics,advanced,critical_thinking","genetics,fractions"
+QZ_052,ancient rome,beginner,22.04,3,"ancient rome,beginner,critical_thinking",
+QZ_053,ancient rome,intermediate,40.76,5,"ancient rome,intermediate,critical_thinking","civil rights,trigonometry"
+QZ_054,ancient rome,advanced,30.21,7,"ancient rome,advanced,critical_thinking","renaissance,cell biology"
+QZ_055,genetics,beginner,49.01,3,"genetics,beginner,critical_thinking",
+QZ_056,genetics,intermediate,29.39,5,"genetics,intermediate,critical_thinking","geometry,genetics"
+QZ_057,genetics,advanced,22.92,7,"genetics,advanced,critical_thinking","democracy,american revolution"
+QZ_058,trigonometry,beginner,14.86,3,"trigonometry,beginner,critical_thinking",
+QZ_059,trigonometry,intermediate,11.97,5,"trigonometry,intermediate,critical_thinking","atomic structure,fractions"
+QZ_060,trigonometry,advanced,14.16,7,"trigonometry,advanced,critical_thinking","world war ii,geometry"

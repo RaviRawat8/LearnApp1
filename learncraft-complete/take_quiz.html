@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}Take Quiz - LearnCraft{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                <h4><i class="fas fa-pencil-alt"></i> Take a Quiz</h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="quiz_id" class="form-label">Quiz ID (Optional)</label>
+                            <input type="text" class="form-control" id="quiz_id" name="quiz_id" 
+                                   value="{{ quiz_id }}" placeholder="e.g., QZ_001">
+                            <div class="form-text">Leave blank to auto-generate based on topic/difficulty</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="topic" class="form-label">Topic</label>
+                            <select class="form-select" id="topic" name="topic" required>
+                                <option value="">Select a topic...</option>
+                                {% for topic_option in available_topics %}
+                                    <option value="{{ topic_option }}" {{ 'selected' if topic_option == topic else '' }}>
+                                        {{ topic_option|title }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="difficulty" class="form-label">Difficulty Level</label>
+                            <select class="form-select" id="difficulty" name="difficulty" required>
+                                <option value="">Select difficulty...</option>
+                                {% for diff in available_difficulties %}
+                                    <option value="{{ diff }}" {{ 'selected' if diff == difficulty else '' }}>
+                                        {{ diff|title }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="confidence" class="form-label">Confidence Level</label>
+                            <select class="form-select" id="confidence" name="confidence" required>
+                                <option value="">How confident do you feel?</option>
+                                <option value="1">1 - Not confident at all</option>
+                                <option value="2">2 - Slightly confident</option>
+                                <option value="3">3 - Moderately confident</option>
+                                <option value="4">4 - Very confident</option>
+                                <option value="5">5 - Extremely confident</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 p-3 bg-light rounded">
+                        <h6><i class="fas fa-info-circle"></i> Quiz Information</h6>
+                        <div id="quiz-info">
+                            <p class="mb-0 text-muted">Select a topic and difficulty to see quiz details</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-lg w-100">
+                        <i class="fas fa-play"></i> Start Quiz
+                    </button>
+                </form>
+
+                <div class="mt-4">
+                    <h6>Quick Start Options:</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="{{ url_for('take_quiz', topic='photosynthesis', difficulty='beginner') }}" 
+                           class="btn btn-outline-success btn-sm">Photosynthesis (Easy)</a>
+                        <a href="{{ url_for('take_quiz', topic='gravity', difficulty='intermediate') }}" 
+                           class="btn btn-outline-warning btn-sm">Gravity (Medium)</a>
+                        <a href="{{ url_for('take_quiz', topic='calculus', difficulty='advanced') }}" 
+                           class="btn btn-outline-danger btn-sm">Calculus (Hard)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Update quiz info when topic/difficulty changes
+document.addEventListener('DOMContentLoaded', function() {
+    const topicSelect = document.getElementById('topic');
+    const difficultySelect = document.getElementById('difficulty');
+    const quizInfo = document.getElementById('quiz-info');
+
+    function updateQuizInfo() {
+        const topic = topicSelect.value;
+        const difficulty = difficultySelect.value;
+
+        if (topic && difficulty) {
+            // Simulated quiz information
+            const estimatedTimes = {'beginner': 15, 'intermediate': 25, 'advanced': 35};
+            const numQuestions = {'beginner': 3, 'intermediate': 5, 'advanced': 7};
+
+            quizInfo.innerHTML = `
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong>Topic:</strong> ${topic.charAt(0).toUpperCase() + topic.slice(1)}
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Questions:</strong> ~${numQuestions[difficulty]}
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Est. Time:</strong> ${estimatedTimes[difficulty]} min
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    topicSelect.addEventListener('change', updateQuizInfo);
+    difficultySelect.addEventListener('change', updateQuizInfo);
+    updateQuizInfo(); // Initial call
+});
+</script>
+{% endblock %}
